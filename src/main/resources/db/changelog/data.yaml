@@ -1,0 +1,288 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: rashidi-zin
+      comment: Populate course table with Latin dance courses
+      changes:
+        - insert:
+            tableName: course
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: title
+                  value: "Salsa Fundamentals"
+              - column:
+                  name: status
+                  value: "ACTIVE"
+        - insert:
+            tableName: course
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: title
+                  value: "Bachata Basics"
+              - column:
+                  name: status
+                  value: "ACTIVE"
+        - insert:
+            tableName: course
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: title
+                  value: "Advanced Rumba"
+              - column:
+                  name: status
+                  value: "ACTIVE"
+        - insert:
+            tableName: course
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: title
+                  value: "Cha-Cha-Cha Techniques"
+              - column:
+                  name: status
+                  value: "ACTIVE"
+        - insert:
+            tableName: course
+            columns:
+              - column:
+                  name: id
+                  value: 5
+              - column:
+                  name: title
+                  value: "Samba Performance"
+              - column:
+                  name: status
+                  value: "CANCELLED"
+
+  - changeSet:
+      id: 5
+      author: rashidi-zin
+      comment: Populate student table with Latin dance students
+      changes:
+        - insert:
+            tableName: student
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: first
+                  value: "Carlos"
+              - column:
+                  name: last
+                  value: "Rodriguez"
+              - column:
+                  name: status
+                  value: "ACTIVE"
+        - insert:
+            tableName: student
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: first
+                  value: "Elena"
+              - column:
+                  name: last
+                  value: "Fuentes"
+              - column:
+                  name: status
+                  value: "ACTIVE"
+        - insert:
+            tableName: student
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: first
+                  value: "Miguel"
+              - column:
+                  name: last
+                  value: "Santos"
+              - column:
+                  name: status
+                  value: "ACTIVE"
+        - insert:
+            tableName: student
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: first
+                  value: "Isabella"
+              - column:
+                  name: last
+                  value: "Martinez"
+              - column:
+                  name: status
+                  value: "INACTIVE"
+        - insert:
+            tableName: student
+            columns:
+              - column:
+                  name: id
+                  value: 5
+              - column:
+                  name: first
+                  value: "Ricardo"
+              - column:
+                  name: last
+                  value: "Diaz"
+              - column:
+                  name: status
+                  value: "ACTIVE"
+
+  - changeSet:
+      id: 6
+      author: rashidi-zin
+      comment: Populate subscription table with Latin dance course enrollments
+      changes:
+        - insert:
+            tableName: subscription
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: student_id
+                  value: 1
+              - column:
+                  name: course_id
+                  value: 1
+              - column:
+                  name: status
+                  value: "COMPLETED"
+        - insert:
+            tableName: subscription
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: student_id
+                  value: 1
+              - column:
+                  name: course_id
+                  value: 3
+              - column:
+                  name: status
+                  value: "ACTIVE"
+        - insert:
+            tableName: subscription
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: student_id
+                  value: 2
+              - column:
+                  name: course_id
+                  value: 2
+              - column:
+                  name: status
+                  value: "ACTIVE"
+        - insert:
+            tableName: subscription
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: student_id
+                  value: 2
+              - column:
+                  name: course_id
+                  value: 4
+              - column:
+                  name: status
+                  value: "ACTIVE"
+        - insert:
+            tableName: subscription
+            columns:
+              - column:
+                  name: id
+                  value: 5
+              - column:
+                  name: student_id
+                  value: 3
+              - column:
+                  name: course_id
+                  value: 1
+              - column:
+                  name: status
+                  value: "COMPLETED"
+        - insert:
+            tableName: subscription
+            columns:
+              - column:
+                  name: id
+                  value: 6
+              - column:
+                  name: student_id
+                  value: 3
+              - column:
+                  name: course_id
+                  value: 2
+              - column:
+                  name: status
+                  value: "ACTIVE"
+        - insert:
+            tableName: subscription
+            columns:
+              - column:
+                  name: id
+                  value: 7
+              - column:
+                  name: student_id
+                  value: 4
+              - column:
+                  name: course_id
+                  value: 5
+              - column:
+                  name: status
+                  value: "CANCELLED"
+        - insert:
+            tableName: subscription
+            columns:
+              - column:
+                  name: id
+                  value: 8
+              - column:
+                  name: student_id
+                  value: 5
+              - column:
+                  name: course_id
+                  value: 3
+              - column:
+                  name: status
+                  value: "ACTIVE"
+        - insert:
+            tableName: subscription
+            columns:
+              - column:
+                  name: id
+                  value: 9
+              - column:
+                  name: student_id
+                  value: 5
+              - column:
+                  name: course_id
+                  value: 4
+              - column:
+                  name: status
+                  value: "ACTIVE"
