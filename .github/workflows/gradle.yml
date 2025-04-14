@@ -77,7 +77,7 @@ jobs:
         with:
           args: >
             -Dsonar.organization=rashidi-github
-            -Dsonar.projectKey=my-rashidi_terpsichore
+            -Dsonar.projectKey=rashidi_terpsichore
 
   dependency-submission:
 
