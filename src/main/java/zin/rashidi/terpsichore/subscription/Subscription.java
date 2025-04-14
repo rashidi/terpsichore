@@ -17,6 +17,26 @@ class Subscription {
     private Long courseId;
     private Status status;
 
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
+    }
+
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Long courseId() {
+        return courseId;
+    }
+
+    public Long studentId() {
+        return studentId;
+    }
+
     @Override
     public boolean equals(Object o) {
         return o instanceof Subscription that && Objects.equals(studentId, that.studentId) && Objects.equals(courseId, that.courseId);
