@@ -51,7 +51,6 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
-        projectBaseDir: src
         args: >
           -Dsonar.organization=rashidi-github
           -Dsonar.projectKey=rashidi_terpsichore
