@@ -74,6 +74,10 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v5.1.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.organization=rashidi-github
+            -Dsonar.projectKey=my-rashidi_terpsichore
 
   dependency-submission:
 
