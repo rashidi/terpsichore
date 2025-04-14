@@ -78,6 +78,7 @@ jobs:
           args: >
             -Dsonar.organization=rashidi-github
             -Dsonar.projectKey=rashidi_terpsichore
+            -Dsonar.tests=./src/test
             -Dsonar.java.binaries=./build/classes/java
 
   dependency-submission:
