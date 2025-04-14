@@ -14,6 +14,10 @@ on:
     branches: [ "master" ]
     types: [opened, synchronize, reopened]
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   build:
 
@@ -45,8 +49,6 @@ jobs:
   sonarqube:
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      pull-request: read
 
     steps:
       - uses: actions/checkout@v4
