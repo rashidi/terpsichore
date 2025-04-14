@@ -65,7 +65,7 @@ jobs:
         with:
           add-job-summary-as-pr-comment: on-failure
       - name: Build with Gradle Wrapper
-        run: ./gradlew test jacocoTestReport sonarqube
+        run: ./gradlew test jacocoTestReport sonar
       - uses: SonarSource/sonarqube-scan-action@v5.1.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
