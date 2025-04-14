@@ -74,6 +74,7 @@ jobs:
           args: >
             -Dsonar.organization=rashidi-github
             -Dsonar.projectKey=rashidi_terpsichore
+            -Dsonar.java.binaries=./build/classes/java
             -Dsonar.coverage.jacoco.xmlReportPaths=./build/reports/jacoco/test/jacocoTestReport.xml
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
