@@ -29,3 +29,4 @@ jobs:
           args: >
             -Dsonar.organization=rashidi-github
             -Dsonar.projectKey=rashidi_terpsichore
+            -Dsonar.java.binaries=./build/**
