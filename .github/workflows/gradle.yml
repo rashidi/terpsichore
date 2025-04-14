@@ -70,17 +70,15 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: ./gradlew test jacocoTestReport sonar -Dsonar.organization=rashidi-github -Dsonar.projectKey=rashidi_terpsichore -Dsonar.java.binaries=./build/classes/java -Dsonar.coverage.jacoco.xmlReportPaths=./build/reports/jacoco/test/jacocoTestReport.xml
-
-    # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
-    # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
-    #
-    # - name: Setup Gradle
-    #   uses: gradle/actions/setup-gradle@06832c7b30a0129d7fb559bcc6e43d26f6374244 # v4.3.1
-    #   with:
-    #     gradle-version: '8.9'
-    #
-    # - name: Build with Gradle 8.9
-    #   run: gradle build
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5.1.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.organization=rashidi-github
+            -Dsonar.projectKey=rashidi_terpsichore
+            -Dsonar.java.binaries=./build/classes/java
 
   dependency-submission:
 
