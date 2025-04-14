@@ -32,7 +32,6 @@ jobs:
       with:
         java-version: '21'
         distribution: 'temurin'
-        cache: 'gradle'
 
     # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
     # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
@@ -48,7 +47,6 @@ jobs:
       run: ./gradlew build
 
   sonarqube:
-    needs: build
     runs-on: ubuntu-latest
 
     steps:
@@ -56,7 +54,19 @@ jobs:
         with:
           # Disabling shallow clones is recommended for improving the relevancy of reporting
           fetch-depth: 0
-      - uses: SonarSource/sonarqube-scan-action@v5.1.0 # Ex: v4.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@06832c7b30a0129d7fb559bcc6e43d26f6374244 # v4.3.1
+        with:
+          add-job-summary-as-pr-comment: on-failure
+      - name: Build with Gradle Wrapper
+        run: ./gradlew test jacocoTestReport sonarqube
+      - uses: SonarSource/sonarqube-scan-action@v5.1.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
