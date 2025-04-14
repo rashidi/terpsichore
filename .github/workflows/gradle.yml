@@ -42,11 +42,11 @@ jobs:
       run: ./gradlew build
 
   sonarqube:
-
     needs: build
     runs-on: ubuntu-latest
     permissions:
       pull-request: read
+
     steps:
       - uses: actions/checkout@v4
         with:
