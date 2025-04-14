@@ -54,8 +54,8 @@ jobs:
         projectBaseDir: src
         args: >
           -Dsonar.organization=rashidi-github
-          -Dsonar.projectKey=rashidi_terpsichore      
-          -Dsonar.java.binaries=build/classes/java
+          -Dsonar.projectKey=rashidi_terpsichore
+          -Dsonar.java.binaries=./build/classes/java
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
