@@ -24,10 +24,6 @@ class Course {
         return title;
     }
 
-    public Status getStatus() {
-        return status;
-    }
-
     public void setStatus(Status status) {
         this.status = status;
     }
