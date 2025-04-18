@@ -11,15 +11,20 @@ databaseChangeLog:
                   name: id
                   type: BIGINT
                   autoIncrement: true
+                  startWith: 6
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
                   name: first
                   type: TEXT
+                  constraints:
+                    nullable: false
               - column:
                   name: last
                   type: TEXT
+                  constraints:
+                    nullable: false
               - column:
                   name: status
                   type: VARCHAR(20)

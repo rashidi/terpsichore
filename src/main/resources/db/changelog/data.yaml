@@ -8,9 +8,6 @@ databaseChangeLog:
             tableName: course
             columns:
               - column:
-                  name: id
-                  value: 1
-              - column:
                   name: title
                   value: "Salsa Fundamentals"
               - column:
@@ -19,9 +16,6 @@ databaseChangeLog:
         - insert:
             tableName: course
             columns:
-              - column:
-                  name: id
-                  value: 2
               - column:
                   name: title
                   value: "Bachata Basics"
@@ -32,9 +26,6 @@ databaseChangeLog:
             tableName: course
             columns:
               - column:
-                  name: id
-                  value: 3
-              - column:
                   name: title
                   value: "Advanced Rumba"
               - column:
@@ -44,9 +35,6 @@ databaseChangeLog:
             tableName: course
             columns:
               - column:
-                  name: id
-                  value: 4
-              - column:
                   name: title
                   value: "Cha-Cha-Cha Techniques"
               - column:
@@ -55,9 +43,6 @@ databaseChangeLog:
         - insert:
             tableName: course
             columns:
-              - column:
-                  name: id
-                  value: 5
               - column:
                   name: title
                   value: "Samba Performance"
