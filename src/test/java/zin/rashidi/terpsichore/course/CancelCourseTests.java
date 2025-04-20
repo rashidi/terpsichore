@@ -22,7 +22,7 @@ import static org.springframework.test.jdbc.JdbcTestUtils.countRowsInTableWhere;
 @Import(TestcontainersConfiguration.class)
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @AutoConfigureMockMvc
-class CourseCancelTests {
+class CancelCourseTests {
 
     @Autowired
     private MockMvcTester mvc;

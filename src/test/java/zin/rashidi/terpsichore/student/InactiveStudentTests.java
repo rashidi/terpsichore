@@ -1,6 +1,5 @@
 package zin.rashidi.terpsichore.student;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import org.springframework.test.jdbc.JdbcTestUtils;
 import org.springframework.test.web.servlet.assertj.MockMvcTester;
 import zin.rashidi.terpsichore.TestcontainersConfiguration;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 import static org.springframework.http.HttpStatus.NO_CONTENT;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
@@ -22,7 +22,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 @Import(TestcontainersConfiguration.class)
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @AutoConfigureMockMvc
-class StudentInactiveTests {
+class InactiveStudentTests {
 
     @Autowired
     private MockMvcTester mvc;
@@ -41,7 +41,7 @@ class StudentInactiveTests {
 
         mvc.patch().uri("/students/{id}", 1L).content(content).contentType(APPLICATION_JSON).assertThat().hasStatus(NO_CONTENT);
 
-        Assertions.assertThat(cancelledSubscriptionsByStudent(1L)).isEqualTo(1);
+        assertThat(cancelledSubscriptionsByStudent(1L)).isEqualTo(1);
     }
 
     private int cancelledSubscriptionsByStudent(Long studentId) {
