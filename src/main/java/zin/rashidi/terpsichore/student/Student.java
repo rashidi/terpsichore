@@ -19,6 +19,14 @@ class Student {
     private Name name;
     private Status status;
 
+    public Long getId() {
+        return id;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
     record Name(String first, String last) {}
 
     enum Status {

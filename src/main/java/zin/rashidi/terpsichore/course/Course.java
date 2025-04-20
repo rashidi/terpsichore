@@ -20,6 +20,14 @@ class Course {
     @NotNull
     private Status status;
 
+    public Long getId() {
+        return id;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
     public String getTitle() {
         return title;
     }
