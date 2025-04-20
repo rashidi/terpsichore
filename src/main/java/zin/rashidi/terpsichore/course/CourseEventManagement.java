@@ -19,7 +19,7 @@ class CourseEventManagement {
         return event -> {
             var course = event.getEntity();
 
-            if (course.getStatus() == CANCELLED) {
+            if (CANCELLED == course.getStatus()) {
                 publisher.publishEvent(new CourseCancelled(course.getId()));
             }
 

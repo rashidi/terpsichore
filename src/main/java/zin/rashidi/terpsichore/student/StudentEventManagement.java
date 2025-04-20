@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.relational.core.mapping.event.AfterSaveEvent;
 
+import static zin.rashidi.terpsichore.student.Student.Status.INACTIVE;
+
 /**
  * @author Rashidi Zin
  */
@@ -17,7 +19,7 @@ class StudentEventManagement {
         return event -> {
             var student = event.getEntity();
 
-            if (Student.Status.INACTIVE == student.getStatus()) {
+            if (INACTIVE == student.getStatus()) {
                 publisher.publishEvent(new StudentInactivated(student.getId()));
             }
         };
