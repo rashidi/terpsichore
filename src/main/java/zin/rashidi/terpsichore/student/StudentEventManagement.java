@@ -21,6 +21,6 @@ class StudentEventManagement {
                 publisher.publishEvent(new StudentInactivated(student.getId()));
             }
         };
-    };
+    }
 
 }
