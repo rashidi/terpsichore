@@ -49,6 +49,10 @@ jobs:
         token: ${{ secrets.TC_CLOUD_TOKEN }}
     - name: Build with Gradle Wrapper
       run: ./gradlew build
+    - name: Terminate Testcontainers Cloud Client active sessions
+      uses: atomicjar/testcontainers-cloud-setup-action@v1
+      with:
+        action: terminate
 
   sonarqube:
     needs: build
@@ -78,3 +82,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: ./gradlew test jacocoTestReport sonar -Dsonar.organization=rashidi-github -Dsonar.projectKey=rashidi_terpsichore -Dsonar.coverage.jacoco.xmlReportPaths=./build/reports/jacoco/test/jacocoTestReport.xml
+      - name: Terminate Testcontainers Cloud Client active sessions
+        uses: atomicjar/testcontainers-cloud-setup-action@v1
+        with:
+          action: terminate
