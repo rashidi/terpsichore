@@ -57,8 +57,24 @@ jobs:
       with:
         action: terminate
 
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      java: ${{ steps.changes.outputs.java }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            java:
+              - 'src/**/java/**'
+
   sonarqube:
-    needs: build
+    needs: [changes, build]
+    if: ${{ needs.changes.outputs.java == 'true' }}
     runs-on: ubuntu-latest
 
     steps:
