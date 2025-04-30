@@ -10,9 +10,19 @@ name: Java CI with Gradle
 on:
   push:
     branches: [ "master" ]
+    paths:
+      - 'gradle/**'
+      - 'build.gradle'
+      - 'gradlew**'
+      - '**/*.java'
   pull_request:
     branches: [ "master" ]
     types: [opened, synchronize, reopened]
+    paths:
+      - 'gradle/**'
+      - 'build.gradle'
+      - 'gradlew**'
+      - '**/*.java'
 
 permissions:
   contents: write
