@@ -29,7 +29,6 @@ jobs:
         uses: gradle/actions/setup-gradle@06832c7b30a0129d7fb559bcc6e43d26f6374244 # v4.3.1
         with:
           add-job-summary-as-pr-comment: on-failure
-          cache-read-only: true
       - name: Setup Testcontainers Cloud Client
         uses: atomicjar/testcontainers-cloud-setup-action@v1
         with:
