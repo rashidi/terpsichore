@@ -10,12 +10,12 @@ name: Java CI with Gradle
 on:
   push:
     branches: [ "master" ]
-    paths: [".github/workflows/gradle.yml", "gradle/**", "build.gradle", "**/*.java"]
+    paths: [".github/workflows/gradle.yml", "gradle/**", "build.gradle", "src/**/java/**"]
 
   pull_request:
     branches: [ "master" ]
     types: [opened, synchronize, reopened]
-    paths: [".github/workflows/gradle.yml", "gradle/**", "build.gradle", "**/*.java"]
+    paths: [".github/workflows/gradle.yml", "gradle/**", "build.gradle", "src/**/java/**"]
 
 permissions:
   contents: write
