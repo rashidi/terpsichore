@@ -1,4 +1,4 @@
-name: SonarQube by SonarCloud
+name: SonarQube
 
 on:
   push:
