@@ -10,9 +10,12 @@ name: Java CI with Gradle
 on:
   push:
     branches: [ "master" ]
+    paths: [".github/workflows/gradle.yml", "gradle/**", "build.gradle", "src/**/java/**"]
+
   pull_request:
     branches: [ "master" ]
     types: [opened, synchronize, reopened]
+    paths: [".github/workflows/gradle.yml", "gradle/**", "build.gradle", "src/**/java/**"]
 
 permissions:
   contents: write
@@ -53,36 +56,3 @@ jobs:
       uses: atomicjar/testcontainers-cloud-setup-action@v1
       with:
         action: terminate
-
-  sonarqube:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          # Disabling shallow clones is recommended for improving the relevancy of reporting
-          fetch-depth: 0
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          java-version: '21'
-          distribution: 'temurin'
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@06832c7b30a0129d7fb559bcc6e43d26f6374244 # v4.3.1
-        with:
-          add-job-summary-as-pr-comment: on-failure
-          cache-read-only: true
-      - name: Setup Testcontainers Cloud Client
-        uses: atomicjar/testcontainers-cloud-setup-action@v1
-        with:
-          token: ${{ secrets.TC_CLOUD_TOKEN }}
-      - name: Generate test report
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew test jacocoTestReport sonar -Dsonar.organization=rashidi-github -Dsonar.projectKey=rashidi_terpsichore -Dsonar.coverage.jacoco.xmlReportPaths=./build/reports/jacoco/test/jacocoTestReport.xml
-      - name: Terminate Testcontainers Cloud Client active sessions
-        uses: atomicjar/testcontainers-cloud-setup-action@v1
-        with:
-          action: terminate
