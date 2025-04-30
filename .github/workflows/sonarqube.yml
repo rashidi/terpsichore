@@ -3,12 +3,12 @@ name: SonarQube
 on:
   push:
     branches: [ "master" ]
-    paths: ["src/**/java/**"]
+    paths: [".github/workflows/sonarqube.yml", "src/**/java/**"]
 
   pull_request:
     branches: [ "master" ]
     types: [opened, synchronize, reopened]
-    paths: ["src/**/java/**"]
+    paths: [".github/workflows/sonarqube.yml", "src/**/java/**"]
 
 jobs:
   sonarqube:
