@@ -48,6 +48,3 @@ jobs:
         dependency-graph: generate-and-submit
     - name: Build with Gradle Wrapper
       run: ./gradlew build
-      uses: atomicjar/testcontainers-cloud-setup-action@v1
-      with:
-        action: terminate
