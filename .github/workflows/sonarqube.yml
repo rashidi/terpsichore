@@ -32,15 +32,7 @@ jobs:
         uses: gradle/actions/setup-gradle@4d9f0ba0025fe599b4ebab900eb7f3a1d93ef4c2 # v5.0.0
         with:
           add-job-summary-as-pr-comment: on-failure
-      - name: Setup Testcontainers Cloud Client
-        uses: atomicjar/testcontainers-cloud-setup-action@v1
-        with:
-          token: ${{ secrets.TC_CLOUD_TOKEN }}
       - name: Generate test report
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: ./gradlew test jacocoTestReport sonar -Dsonar.organization=rashidi-github -Dsonar.projectKey=rashidi_terpsichore -Dsonar.coverage.jacoco.xmlReportPaths=./build/reports/jacoco/test/jacocoTestReport.xml
-      - name: Terminate Testcontainers Cloud Client active sessions
-        uses: atomicjar/testcontainers-cloud-setup-action@v1
-        with:
-          action: terminate
