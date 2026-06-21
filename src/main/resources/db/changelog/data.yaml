@@ -140,9 +140,6 @@ databaseChangeLog:
             tableName: subscription
             columns:
               - column:
-                  name: id
-                  value: 1
-              - column:
                   name: student_id
                   value: 1
               - column:
@@ -155,9 +152,6 @@ databaseChangeLog:
             tableName: subscription
             columns:
               - column:
-                  name: id
-                  value: 2
-              - column:
                   name: student_id
                   value: 1
               - column:
@@ -170,9 +164,6 @@ databaseChangeLog:
             tableName: subscription
             columns:
               - column:
-                  name: id
-                  value: 3
-              - column:
                   name: student_id
                   value: 2
               - column:
@@ -184,9 +175,6 @@ databaseChangeLog:
         - insert:
             tableName: subscription
             columns:
-              - column:
-                  name: id
-                  value: 4
               - column:
                   name: student_id
                   value: 2
@@ -200,9 +188,6 @@ databaseChangeLog:
             tableName: subscription
             columns:
               - column:
-                  name: id
-                  value: 5
-              - column:
                   name: student_id
                   value: 3
               - column:
@@ -215,9 +200,6 @@ databaseChangeLog:
             tableName: subscription
             columns:
               - column:
-                  name: id
-                  value: 6
-              - column:
                   name: student_id
                   value: 3
               - column:
@@ -229,9 +211,6 @@ databaseChangeLog:
         - insert:
             tableName: subscription
             columns:
-              - column:
-                  name: id
-                  value: 7
               - column:
                   name: student_id
                   value: 4
@@ -245,9 +224,6 @@ databaseChangeLog:
             tableName: subscription
             columns:
               - column:
-                  name: id
-                  value: 8
-              - column:
                   name: student_id
                   value: 5
               - column:
@@ -259,9 +235,6 @@ databaseChangeLog:
         - insert:
             tableName: subscription
             columns:
-              - column:
-                  name: id
-                  value: 9
               - column:
                   name: student_id
                   value: 5

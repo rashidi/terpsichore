@@ -3,3 +3,5 @@ databaseChangeLog:
       file: db/changelog/create-tables.yaml
   - include:
       file: db/changelog/data.yaml
+  - include:
+      file: db/changelog/update-subscription-create-invoice.yaml
