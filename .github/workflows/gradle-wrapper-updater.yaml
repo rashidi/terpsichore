@@ -22,7 +22,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Update Gradle Wrapper
-        uses: gradle-update/update-gradle-wrapper-action@v2
+        uses: gradle-update/update-gradle-wrapper-action@512b1875f3b6270828abfe77b247d5895a2da1e5
         with:
           labels: dependencies
           merge-method: SQUASH
