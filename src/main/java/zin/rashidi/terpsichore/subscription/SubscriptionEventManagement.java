@@ -1,38 +1,29 @@
 package zin.rashidi.terpsichore.subscription;
 
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.event.TransactionalEventListener;
-import zin.rashidi.terpsichore.course.CourseCancelled;
-import zin.rashidi.terpsichore.student.StudentInactivated;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.relational.core.mapping.event.AfterSaveEvent;
 
-import static org.springframework.transaction.annotation.Propagation.REQUIRES_NEW;
+import static java.util.Objects.isNull;
 
 /**
  * @author Rashidi Zin
  */
-@Component
+@Configuration
 class SubscriptionEventManagement {
 
-    private final SubscriptionRepository subscriptions;
+    @Bean
+    public ApplicationListener<AfterSaveEvent<Subscription>> subscriptionCreated(ApplicationEventPublisher publisher) {
+        return event -> {
+            var subscription = event.getEntity();
 
-    SubscriptionEventManagement(SubscriptionRepository subscriptions) {
-        this.subscriptions = subscriptions;
-    }
+            if (isNull(subscription.getModifiedDate())) {
+                publisher.publishEvent(new SubscriptionRegistered(subscription.getId()));
+            }
 
-    @Async
-    @Transactional(propagation = REQUIRES_NEW)
-    @TransactionalEventListener
-    public void cancelByCourse(CourseCancelled course) {
-        subscriptions.cancelByCourse(course.id());
-    }
-
-    @Async
-    @Transactional(propagation = REQUIRES_NEW)
-    @TransactionalEventListener
-    public void cancelByStudent(StudentInactivated student) {
-        subscriptions.cancelByStudent(student.id());
+        };
     }
 
 }
