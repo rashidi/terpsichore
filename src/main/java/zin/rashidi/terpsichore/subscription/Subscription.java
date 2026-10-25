@@ -1,8 +1,11 @@
 package zin.rashidi.terpsichore.subscription;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -17,12 +20,26 @@ class Subscription {
     private Long courseId;
     private Status status;
 
+    @CreatedDate
+    private LocalDate createdDate;
+
+    @LastModifiedDate
+    private LocalDate modifiedDate;
+
+    public Long getId() {
+        return id;
+    }
+
     public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 
     public void setCourseId(Long courseId) {
         this.courseId = courseId;
+    }
+
+    public Status getStatus() {
+        return status;
     }
 
     public void setStatus(Status status) {
@@ -35,6 +52,10 @@ class Subscription {
 
     public Long studentId() {
         return studentId;
+    }
+
+    public LocalDate getModifiedDate() {
+        return modifiedDate;
     }
 
     @Override
